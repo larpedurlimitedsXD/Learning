@@ -26,7 +26,7 @@
             connectionname.Close();
 
 
-            MessageBox.Show(intname.ToString() + " records aangepast"); 
+            MessageBox.Show(intname.ToString() + " records changed"); 
 
                 **Using Readers to fill a listbox**
        

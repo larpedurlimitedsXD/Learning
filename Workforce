@@ -3,14 +3,14 @@
                 **Using Select count(*)**
                 
             
-            scnnArtemisSQL.Open();
+            connectionname.Open();
 
      
-            scmdOrdersTonen.CommandText = "Select count(*) from tblOrders";
-            lblOrders.Text = scmdOrdersTonen.ExecuteScalar().ToString();
+            commandname.CommandText = "Select count(*) from tablename";
+            labelname.Text = commandname.ExecuteScalar().ToString();
 
      
-            scnnArtemisSQL.Close(); 
+            connectionname.Close(); 
         
 
                 **Using ExecuteNonQuerys**
@@ -19,11 +19,11 @@
             int intAantal;
             
 
-            scnnArtemisSQL.Open();
+            connectionname.Open();
 
-            intAantal = scmdOrdersVermigvuldigen.ExecuteNonQuery(); 
+            intname = commandname.ExecuteNonQuery(); 
 
-            scnnArtemisSQL.Close();
+            connectionname.Close();
 
 
             MessageBox.Show(intAantal.ToString() + " records aangepast"); 
@@ -31,20 +31,63 @@
                 **Using Readers to fill a listbox**
        
            
-            scnnArtemisSQL.Open();
-            SqlDataReader sdrOrders = scmdOrdersInlijst.ExecuteReader();
+            connectionname.Open();
+            SqlDataReader Readername = commandname.ExecuteReader();
 
            
-            while(sdrOrders.Read())
+            while(Readername.Read())
             {
-                lbOrders.Items.Add(sdrOrders["OrderID"].ToString());
+                lbOrders.Items.Add(sdrOrders["columnnameintable"].ToString());
             }
 
            //closing the reader
-            sdrOrders.Close();
+            Readername.Close();
             
             
-            scnnArtemisSQL.Close(); 
+            connectionname.Close(); 
+            
+            
+                  **To find and collect**
+            
+            
+            connectionname.Open();
+            
+            Commandname.CommandText = "SELECT columnname1 FROM tablename WHERE columnname2 = variable"
+            
+            //if being put in a label, 
+            string stringname = commandname.ExecuteScalar().Tostring();
+            
+            labelname.Text = stringname;
+            
+            connectionname.Close();
+            
+            
+                   **Deleting records**
+            connectionname.Open();
+            
+            commandname.CommandText = "DELETE columnname FROM tablename";
+            
+            int intname = commandname.ExecuteNonQuery();
+            
+            connectionname.Close();
+            
+            //if shown in a messagebox,
+            MessageBox.Show( intname + " records deleted.");
+            
+            
+                  **Using sql reader to fill listboxes**
+            connectionname.Open();
+            
+            SqlDataReader readername = commandname.ExecuteReader();
+            
+            while  (readername.Read())
+            {
+                string stringname = readername["columnname"].ToString();
+                
+                listboxname.Items.Add(stringname);
+            }
+            
+            connectionname.Close();
             
             
    

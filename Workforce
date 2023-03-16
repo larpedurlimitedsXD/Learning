@@ -13,14 +13,16 @@
             connectionname.Close(); 
         
 
-                **Using ExecuteNonQuerys**
+                **Using ExecuteNonQuerys to multiply**
 
             
             int intname;
             
 
             connectionname.Open();
-
+             
+            
+            commandname.ComandText = "UPDATE tablename SET columnname = columnname * variable"
             intname = commandname.ExecuteNonQuery(); 
 
             connectionname.Close();

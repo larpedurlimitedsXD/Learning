@@ -1,0 +1,50 @@
+
+
+                **Using Select count(*)**
+                
+            
+            scnnArtemisSQL.Open();
+
+     
+            scmdOrdersTonen.CommandText = "Select count(*) from tblOrders";
+            lblOrders.Text = scmdOrdersTonen.ExecuteScalar().ToString();
+
+     
+            scnnArtemisSQL.Close(); 
+        
+
+                **Using ExecuteNonQuerys**
+
+            
+            int intAantal;
+            
+
+            scnnArtemisSQL.Open();
+
+            intAantal = scmdOrdersVermigvuldigen.ExecuteNonQuery(); 
+
+            scnnArtemisSQL.Close();
+
+
+            MessageBox.Show(intAantal.ToString() + " records aangepast"); 
+
+                **Using Readers to fill a listbox**
+       
+           
+            scnnArtemisSQL.Open();
+            SqlDataReader sdrOrders = scmdOrdersInlijst.ExecuteReader();
+
+           
+            while(sdrOrders.Read())
+            {
+                lbOrders.Items.Add(sdrOrders["OrderID"].ToString());
+            }
+
+           //closing the reader
+            sdrOrders.Close();
+            
+            
+            scnnArtemisSQL.Close(); 
+            
+            
+   

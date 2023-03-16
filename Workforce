@@ -90,4 +90,19 @@
             connectionname.Close();
             
             
-   
+                     **Selected items off a listbox**
+                     
+             
+            private void labelname_selectedindexchanged
+            
+            connectionname.Open();
+            
+            string stringname = listboxname.SelectedItem.ToString();
+            
+            commandname.CommandText = "SELECT columnname FROM tablename WHERE columnname2 = '" + stringname + "'";
+            
+            string stringname2 = commandname.ExecuteScalar().ToString();
+            
+            labelname.Text = stringname2;
+
+            connectionname.Close();
